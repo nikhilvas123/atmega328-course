@@ -1,4 +1,4 @@
-name: Compile-Linux
+name: Compile-Linux[1]
 
 on:
   push:
@@ -16,4 +16,4 @@ jobs:
     - name: get_avr-gcc
       run: sudo apt-get install gcc-avr binutils-avr avr-libc
     - name: Compile
-      run: make
+      run: make Activity1
