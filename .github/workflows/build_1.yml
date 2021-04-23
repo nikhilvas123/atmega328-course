@@ -1,4 +1,4 @@
-name: Compile-Linux-1
+name: Linux-build-1
 
 on:
   push:
