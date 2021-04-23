@@ -10,6 +10,12 @@
  */
 #ifndef __LED_H__
 #define __LED_H__
+
+/**
+ * Include files
+ */ 
+#include <avr/io.h>
+#include <util/delay.h>
 /**
  * Macro Definitions
  */
@@ -18,14 +24,5 @@
 
 #define LED_ON_TIME     (500)  /**< LED ON time in milli seconds  */
 #define LED_OFF_TIME    (500)   /**< LED OFF time in milli seconds */
-
-/**
- * Include files
- */ 
-#include <avr/io.h>
-#include <avr/delay.h>
-/*
- * Function Definitions
- */
 
 #endif /** __LED_H__ */
