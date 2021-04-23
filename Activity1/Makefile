@@ -1,16 +1,23 @@
-PROJ_NAME = Blinky
+PROJ_NAME=led
 
-BUILD_DIR = Build
+TARGET=atmega328
+
+OPTIMISE = -Os
+
+BUILD_DIR = build
+
+PROJ_PATH = $(BUILD_DIR)/$(PROJ_NAME)
 
 # All Source code files
-SRC = project_main.c\
-src/user_utils.c
+SRC = project_main.c
 
 # All header file paths
 INC = -I inc
 
 # Find out the OS and configure the variables accordingly
 ifdef OS	# All configurations for Windwos OS
+# Delete command 
+   RM = del /q
 # Correct the path based on OS
    FixPath = $(subst /,\,$1)
 # Name of the compiler used
@@ -19,6 +26,8 @@ ifdef OS	# All configurations for Windwos OS
    AVR_OBJ_CPY = avr-objcopy.exe
 else #All configurations for Linux OS
    ifeq ($(shell uname), Linux)
+# Delete command
+      RM = rm -rf	
 # Correct the path based on OS
       FixPath = $1				
 # Name of the compiler used
@@ -31,13 +40,21 @@ endif
 # Command to make to consider these names as targets and not as file names in folder
 .PHONY:all analysis clean doc
 
-all:$(BUILD_DIR)
-# Compile the code and generate the ELF file
-	$(CC) -g -Wall -Os -mmcu=atmega328  $(INC) $(SRC) -o $(call FixPath,$(BUILD_DIR)/$(PROJ_NAME).elf)
+all: $(PROJ_PATH).elf
+	# Generate hex file from elf file
+	$(AVR_OBJ_CPY) -j .text -j .data -O ihex $(call FixPath,$(PROJ_PATH).elf) $(call FixPath,$(PROJ_PATH).hex)
+
+$(PROJ_PATH).elf: $(PROJ_PATH).o
+	# Generate elf file from object file
+	$(CC) -g -mmcu=$(TARGET) -o $(call FixPath,$(PROJ_PATH).elf) $(call FixPath,$(PROJ_PATH).o)
+
+$(PROJ_PATH).o: $(SRC) $(BUILD_DIR)
+	# Compile and generate object file from c file
+	$(CC) -g -Wall $(OPTIMISE) -mmcu=$(TARGET) -c $(INC) $(SRC) -o $(call FixPath,$(PROJ_PATH).o)
 
 $(BUILD_DIR):
-# Create directory to store the built files
-	mkdir $(BUILD_DIR)
+	# Create new build folder if not present
+	mkdir build
 
 analysis: $(SRC)
 # Analyse the code using Cppcheck command line utility
@@ -49,5 +66,5 @@ doc:
 
 clean:
 # Remove all the build files and generated document files
-	rm -rf $(call FixPath,$(BUILD_DIR)/*)
+	$(RM) $(call FixPath,$(BUILD_DIR))
 	make -C documentation clean

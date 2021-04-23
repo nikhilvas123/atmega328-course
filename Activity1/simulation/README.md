@@ -1,16 +1,19 @@
-# Blinky Project In Action
+# Project In Action
 
 |ON|OFF|
 |:--:|:--:|
-|\image html ON.png||
+|![ON](ON.png)|![OFF](OFF.png)|
 
 ## Code 
 ```
-	for(;;)
-	{
-        change_led_state(HIGH);
-		delay_ms(LED_ON_TIME);
-        change_led_state(LOW);
-		delay_ms(LED_OFF_TIME);	
-	}
+	for(;;){
+		if(!((PIND&(1<<SW_PIN_0)) || (PIND&(1<<SW_PIN_1)))){
+			LED_PORT|=(1<<LED_PIN);
+            _delay_ms(500);
+        }
+        else{
+            LED_PORT&=~(1<<LED_PIN);
+			_delay_ms(500);
+        }
+    }
 ```

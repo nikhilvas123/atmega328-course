@@ -1,1 +1,1 @@
-@mainpage Blinky Example by Bharath G @subpage project_main.c
+@mainpage Status LED based on two switches by Nikhil Nevin Vas @subpage project_main.c

@@ -1,10 +1,18 @@
-DOXY_FILE = Blinky
+DOXY_FILE = Led
 BUILD_FILE = html
 
-FixPath = $(subst /,\,$1)
+ifdef OS
+	FixPath = $(subst /,\,$1)
+	RM = del /q
+else
+	ifeq ($(shell uname), Linux)
+		RM = rm -rf
+		FixPath = $1
+	endif	
+endif
 
 doc:
-	doxygen ./$(DOXY_FILE)
+	doxygen $(call FixPath,./$(DOXY_FILE))
 
 clean:
-	rm -rf $(call FixPath,$(BUILD_FILE)/*)
+	$(RM) $(call FixPath,$(BUILD_FILE))
