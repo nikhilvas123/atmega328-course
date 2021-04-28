@@ -25,7 +25,7 @@
  */
 #define PWM_DDR DDRB
 #define PWM_PIN PB1
-#define COMPARE_REG OCRA1
+#define COMPARE_REG OCR1A
 
 /**
  * @brief Initialize all the Peripherals and pin configurations 

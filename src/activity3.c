@@ -11,6 +11,6 @@ void activity3_init(){
 }
 
 /* Sets the Output compare register */
-set_pwm_threshold(uint16_t temp){
+void set_pwm_threshold(uint16_t temp){
     COMPARE_REG = temp;
 }
