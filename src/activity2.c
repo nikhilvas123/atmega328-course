@@ -1,4 +1,6 @@
 #include "activity2.h"
+
+/* Initialize all the Peripherals and pin configurations */
 void activity2_init(){
     /* Set Avref = Avcc*/
     ADMUX = (1<<REFS0);
@@ -6,6 +8,7 @@ void activity2_init(){
     ADCSRA |= (1<<ADEN) | (0x07<<ADPS0);
 }
 
+/* Reads the adc value from the given input channel */
 uint16_t read_adc(uint8_t ch){
     /* ch must be 0-7 */
     ADMUX &= 0xf8;

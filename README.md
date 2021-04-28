@@ -20,5 +20,13 @@
 |:--:|:--:|
 |![MAX](simulation/MAX.png)|![RANDOM](simulation/RANDOM.png)|
 
+# Activity 3
+## Obtaining PWM signal based on temperature sensor
+
+|PWM 50% duty-cycle|PWM >50% duty-cycle|
+|:--:|:--:|
+|![PWM_50](simulation/PWM_50.png)|![PWM_HIGH](simulation/PWM_HIGH.png)|
+
+
 ## Wiki Documentation
 * System [SETUP](https://github.com/nikhilvas123/atmega328-course/wiki/Software-Requirements)

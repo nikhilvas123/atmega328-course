@@ -10,6 +10,7 @@
  */
 #include "activity1.h"
 #include "activity2.h"
+#include "activity3.h"
 
 /**
  * @brief Initialize all the Peripherals and pin configurations
@@ -18,6 +19,7 @@
 void peripheral_init(void){
 	activity1_init();
 	activity2_init();
+	activity3_init();
 }
 
 /**
@@ -35,9 +37,13 @@ int main(void)
 	peripheral_init();
 
 	for(;;){
-		/* Check if both Switch is closed; i.e Pins 0 and 1 of port D is low*/
+		/* Check if button and heater is on and change led state; i.e Pins 0 and 1 of port D is low*/
 		change_led_state();
+		/* Get temperature value from temperature sensor through ADC */
 		temp_val = read_adc(TEMP_PIN);
+		/* Set pwm threshold value to temperature value */
+		set_pwm_threshold(temp_val);
+		
 		_delay_ms(200);
     }
 	return 0;

@@ -1,7 +1,7 @@
 /**
  * @file  activity1.h
  * @author Nikhil Nevin Vas (nikhilvas123@gmail.com)
- * @brief Led Definitions
+ * @brief Toggling LED based on inputs from button and heater
  * @version 0.1
  * @date 2021-04-23
  * 

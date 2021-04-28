@@ -7,8 +7,10 @@ uint8_t button_heater_check(){
 /* Function to change the led state */
 void led_state(state s){
 	if(s)
+        /* Turn ON LED*/
 		LED_PORT|=(1<<LED_PIN);		
 	else
+        /* Turn OFF LED */
 		LED_PORT&=~(1<<LED_PIN);
 }
 
@@ -30,11 +32,11 @@ void change_led_state(){
     if(button_heater_check()){
         /* Turn on LED */
         led_state(HIGH);
-        _delay_ms(500);
+        _delay_ms(100);
     }
     else{
         /* Turn off LED*/
         led_state(LOW);
-        _delay_ms(500);
+        _delay_ms(100);
     }
 }

@@ -1,7 +1,7 @@
 /**
  * @file activity2.h
  * @author Nikhil Nevin Vas (nikhilvas123@gmail.com)
- * @brief 
+ * @brief Reading values of temperature sensor using ADC
  * @version 0.1
  * @date 2021-04-29
  * 
