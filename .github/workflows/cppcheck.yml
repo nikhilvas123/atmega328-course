@@ -1,4 +1,4 @@
-name: Cppcheck-1
+name: Cppcheck
 
 on:
   push:
@@ -16,4 +16,4 @@ jobs:
     - name: get_cppcheck
       run: sudo apt-get install cppcheck
     - name: Code Quality
-      run: make -C analysis
+      run: make analysis
