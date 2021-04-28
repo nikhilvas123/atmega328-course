@@ -20,10 +20,10 @@ void peripheral_init(void)
 {
 	/* Configure LED Pin */
 	DDRB |= (1 << LED_PIN);
-	/* Configure Switch1 pin as Output */
+	/* Configure Switch1 pin as Input */
 	DDRD&=~(1<<SW_PIN_0);
     SW_PORT|=(1<<SW_PIN_0);
-	/* Configure Switch2 pin as Output */
+	/* Configure Switch2 pin as Input */
     DDRD&=~(1<<SW_PIN_1);
     SW_PORT|=(1<<SW_PIN_1);
 }
