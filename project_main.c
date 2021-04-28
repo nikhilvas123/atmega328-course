@@ -9,14 +9,15 @@
  * 
  */
 #include "activity1.h"
+#include "activity2.h"
 
 /**
  * @brief Initialize all the Peripherals and pin configurations
  * 
  */
-void peripheral_init(void)
-{
+void peripheral_init(void){
 	activity1_init();
+	activity2_init();
 }
 
 /**
@@ -29,21 +30,15 @@ void peripheral_init(void)
  */
 int main(void)
 {
+	volatile uint16_t temp_val;
 	/* Initialize Peripherals */
 	peripheral_init();
 
 	for(;;){
 		/* Check if both Switch is closed; i.e Pins 0 and 1 of port D is low*/
-		if(button_heater_check()){
-			/* Turn on LED */
-            led_state(HIGH);
-            _delay_ms(500);
-        }
-        else{
-			/* Turn off LED*/
-			led_state(LOW);
-            _delay_ms(500);
-        }
+		change_led_state();
+		temp_val = read_adc(TEMP_PIN);
+		_delay_ms(200);
     }
 	return 0;
 }

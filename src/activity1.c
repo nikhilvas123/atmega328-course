@@ -23,3 +23,18 @@ void activity1_init(){
     BUTTON_DDR&=~(1<<HEATER_PIN);
     BUTTON_PORT|=(1<<HEATER_PIN);
 }
+
+/* Changes LED state based on button and heater */
+void change_led_state(){
+    /* Check if both Switch is closed; i.e Pins 0 and 1 of port D is low*/
+    if(button_heater_check()){
+        /* Turn on LED */
+        led_state(HIGH);
+        _delay_ms(500);
+    }
+    else{
+        /* Turn off LED*/
+        led_state(LOW);
+        _delay_ms(500);
+    }
+}

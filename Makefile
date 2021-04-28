@@ -10,7 +10,8 @@ PROJ_PATH = $(BUILD_DIR)/$(PROJ_NAME)
 
 # All Source code files
 SRC = project_main.c\
-src/activity1.c
+src/activity1.c\
+src/activity2.c
 
 # All header file paths
 INC = -I inc
@@ -70,3 +71,4 @@ clean:
 # Remove all the build files and generated document files
 	$(RM) $(call FixPath,$(BUILD_DIR))
 	make -C documentation clean
+	$(RM) *.o

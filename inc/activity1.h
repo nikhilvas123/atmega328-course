@@ -70,4 +70,10 @@ void led_state(state s);
  */
 void activity1_init();
 
+/**
+ * @brief Changes led state based on button and heater input
+ * 
+ */
+void change_led_state();
+
 #endif /** __ACTIVITY1_H__ */
