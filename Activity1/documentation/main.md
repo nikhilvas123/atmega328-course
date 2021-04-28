@@ -1,1 +1,0 @@
-@mainpage Status LED based on two switches by Nikhil Nevin Vas @subpage project_main.c

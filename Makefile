@@ -1,4 +1,4 @@
-PROJ_NAME=led
+PROJ_NAME=seat_heater
 
 TARGET=atmega328
 
@@ -9,7 +9,8 @@ BUILD_DIR = build
 PROJ_PATH = $(BUILD_DIR)/$(PROJ_NAME)
 
 # All Source code files
-SRC = project_main.c
+SRC = project_main.c\
+src/activity1.c
 
 # All header file paths
 INC = -I inc
@@ -46,11 +47,12 @@ all: $(PROJ_PATH).elf
 
 $(PROJ_PATH).elf: $(PROJ_PATH).o
 	# Generate elf file from object file
-	$(CC) -g -mmcu=$(TARGET) -o $(call FixPath,$(PROJ_PATH).elf) $(call FixPath,$(PROJ_PATH).o)
+	$(CC) -g -mmcu=$(TARGET) -o $(call FixPath,$(PROJ_PATH).elf) $(call FixPath,$(BUILD_DIR)/*.o)
 
 $(PROJ_PATH).o: $(SRC) $(BUILD_DIR)
 	# Compile and generate object file from c file
-	$(CC) -g -Wall $(OPTIMISE) -mmcu=$(TARGET) -c $(INC) $(SRC) -o $(call FixPath,$(PROJ_PATH).o)
+	$(CC) -g -Wall $(OPTIMISE) -mmcu=$(TARGET) -c $(INC) $(SRC)
+	mv *.o $(BUILD_DIR)
 
 $(BUILD_DIR):
 	# Create new build folder if not present
