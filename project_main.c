@@ -56,7 +56,7 @@ void temp_to_str(volatile uint16_t temp_val, char *temp_str){
  */
 int main(void)
 {
-	volatile uint16_t temp_val = 0;
+	volatile uint16_t temp_val;
 	char temp_str[5];
 	/* Initialize Peripherals */
 	peripheral_init();
