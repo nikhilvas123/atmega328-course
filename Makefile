@@ -21,6 +21,8 @@ INC = -I inc
 ifdef OS	# All configurations for Windwos OS
 # Delete command 
    RM = del /q
+# Move command
+   MOV = Move-Item
 # Correct the path based on OS
    FixPath = $(subst /,\,$1)
 # Name of the compiler used
@@ -31,6 +33,8 @@ else #All configurations for Linux OS
    ifeq ($(shell uname), Linux)
 # Delete command
     RM = rm -rf
+# Move command
+   MOV = mv	
 # Correct the path based on OS
     FixPath = $1				
 # Name of the compiler used
@@ -54,7 +58,7 @@ $(PROJ_PATH).elf: $(PROJ_PATH).o
 $(PROJ_PATH).o: $(SRC) $(BUILD_DIR)
 	# Compile and generate object file from c file
 	$(CC) -g -Wall $(OPTIMISE) -mmcu=$(TARGET) -c $(INC) $(SRC)
-	mv *.o $(BUILD_DIR)
+	$(MOV) *.o $(BUILD_DIR)
 
 $(BUILD_DIR):
 	# Create new build folder if not present
