@@ -1,4 +1,4 @@
-DOXY_FILE = Led
+DOXY_FILE = SeatHeater
 BUILD_FILE = html
 
 ifdef OS

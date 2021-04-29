@@ -20,31 +20,23 @@
 #include <util/delay.h>
 
 /**
- * Structure and enum definitions
- */ 
-typedef enum{
-    LOW,
-    HIGH
-}state;
-
-/**
  * Macro Definitions
  */
-#define LED_PORT (PORTB)    /**< LED Port */
-#define LED_DDR (DDRB)    /**< LED Data Direction Register */
+#define LED_PORT (&PORTB)    /**< LED Port */
+#define LED_DDR (&DDRB)    /**< LED Data Direction Register */
 #define LED_PIN  (PB0)  /**< LED Pin Number  */
 
-#define BUTTON_PORT (PORTD) /**< BUTTON and HEATER Port */
-#define BUTTON_DDR (DDRD)  /**< BUTTON Data Direction Register */
-#define BUTTON_STATUS (PIND) /**< BUTTON Status Register */
+#define BUTTON_PORT (&PORTD) /**< BUTTON and HEATER Port */
+#define BUTTON_DDR (&DDRD)  /**< BUTTON Data Direction Register */
+#define BUTTON_STATUS (&PIND) /**< BUTTON Status Register */
 #define BUTTON_PIN (PD0)  /**< BUTTON Pin number */
 #define HEATER_PIN (PD1)  /**< HEATER Pin number */
 
 #define LED_ON 	(0x01)			/**< LED state HIGH */
 #define LED_OFF	(0x00)			/**< LED state LOW */
 
-#define LED_ON_TIME     (500)  /**< LED ON time in milli seconds  */
-#define LED_OFF_TIME    (500)   /**< LED OFF time in milli seconds */
+#define LED_ON_TIME     (100)  /**< LED ON time in milli seconds  */
+#define LED_OFF_TIME    (100)   /**< LED OFF time in milli seconds */
 
 /**
  * Function declarations
@@ -57,12 +49,6 @@ typedef enum{
  */
 uint8_t button_heater_check();
 
-/**
- * @brief Function to change the led state
- * 
- * @param s 
- */
-void led_state(state s);
 
 /**
  * @brief Initialize all the Peripherals and pin configurations 

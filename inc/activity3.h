@@ -23,9 +23,10 @@
 /**
  * Macro Definitions
  */
-#define PWM_DDR DDRB
+#define PWM_DDR (&DDRB)
+#define PWM_PORT (&PORTB)
 #define PWM_PIN PB1
-#define COMPARE_REG OCR1A
+#define COMPARE_REG (&OCR1A)
 
 /**
  * @brief Initialize all the Peripherals and pin configurations 

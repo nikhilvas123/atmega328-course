@@ -12,7 +12,8 @@ PROJ_PATH = $(BUILD_DIR)/$(PROJ_NAME)
 SRC = project_main.c\
 src/activity1.c\
 src/activity2.c\
-src/activity3.c
+src/activity3.c\
+src/project_config.c
 
 # All header file paths
 INC = -I inc
