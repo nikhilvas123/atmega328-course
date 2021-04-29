@@ -39,6 +39,14 @@ void activity3_init();
  * 
  * @param temp 
  */
+
 void set_pwm_threshold(uint16_t temp);
+/**
+ * @brief Get the temp in degree C
+ * 
+ * @param temp 
+ * @return Returns temperature in degree C 
+ */
+uint16_t get_temp_in_c(uint16_t temp);
 
 #endif /** __ACTIVITY3_H__ */

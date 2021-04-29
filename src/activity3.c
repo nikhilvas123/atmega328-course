@@ -12,5 +12,29 @@ void activity3_init(){
 
 /* Sets the Output compare register */
 void set_pwm_threshold(uint16_t temp){
-    *COMPARE_REG = temp;
+    switch(temp){
+        case 20:
+            *COMPARE_REG = 205;
+            break;
+        case 25:
+            *COMPARE_REG = 409;
+            break;
+        case 29:
+            *COMPARE_REG = 716;
+            break;
+        case 33:
+            *COMPARE_REG = 972;
+            break;
+    }
+}
+
+/* Gets the temperature from ADC value using LUT */
+uint16_t get_temp_in_c(uint16_t temp){
+    if(temp <=200)
+        return 20;
+    else if (temp <=500)
+        return 25;
+    else if (temp <=700)
+        return 29;
+    return 33;
 }

@@ -14,6 +14,12 @@
 
 ## Activity 3
 
-|PWM 50% duty-cycle|PWM >50% duty-cycle|
+|PWM 70% duty-cycle|PWM 20% duty-cycle|
 |:--:|:--:|
-|![MAX](MAX.png)|![RANDOM](RANDOM.png)|
+|![PWM_70](PWM_70.png)|![PWM_20](PWM_20.png)|
+
+## Activity 4
+
+|Temperature 29 C|Temperature 20 C|
+|:--:|:--:|
+|![29C](29C.png)|![20C](20C.png)|

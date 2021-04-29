@@ -29,8 +29,8 @@
 #define BUTTON_PORT (&PORTD) /**< BUTTON and HEATER Port */
 #define BUTTON_DDR (&DDRD)  /**< BUTTON Data Direction Register */
 #define BUTTON_STATUS (&PIND) /**< BUTTON Status Register */
-#define BUTTON_PIN (PD0)  /**< BUTTON Pin number */
-#define HEATER_PIN (PD1)  /**< HEATER Pin number */
+#define BUTTON_PIN (PD2)  /**< BUTTON Pin number */
+#define HEATER_PIN (PD3)  /**< HEATER Pin number */
 
 #define LED_ON 	(0x01)			/**< LED state HIGH */
 #define LED_OFF	(0x00)			/**< LED state LOW */
