@@ -32,7 +32,7 @@
 
 |Temperature 29 C|Temperature 20 C|
 |:--:|:--:|
-|![29C](29C.png)|![20C](20C.png)|
+|![29C](simulation/29C.png)|![20C](simulation/20C.png)|
 
 ## Wiki Documentation
 * System [SETUP](https://github.com/nikhilvas123/atmega328-course/wiki/Software-Requirements)
