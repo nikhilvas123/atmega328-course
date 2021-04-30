@@ -22,8 +22,8 @@
 /**
  * Macro definitions
  */
-#define BAUD 9600
-#define BAUDRATE (F_CPU/(BAUD*16UL)-1)
+#define BAUD 9600 /**< Baud rate to 9600 */
+#define BAUDRATE (F_CPU/(BAUD*16UL)-1) /**< Baud rate conversion factor */
 
 /**
  * @brief Initialize all the Peripherals and pin configurations
